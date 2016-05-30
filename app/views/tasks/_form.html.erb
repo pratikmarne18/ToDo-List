@@ -27,7 +27,7 @@
     
     
   </div> -->
-  <%dropdown_options = {"Progress" => "progress", "Pending" => "pending", "Done" => "done"}%>
+  <%dropdown_options = {"progress" => "Progress", "pending" => "Pending", "done" => "Done"}%>
   <div class="field">
     <%= f.label :status %><br>
     <%= f.collection_select :status, dropdown_options, :first, :last %>
