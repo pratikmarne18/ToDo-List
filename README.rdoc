@@ -26,3 +26,14 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+I have created a Project Manager in this project.
+Email :- admin123@gmail.com
+Password :- 123456789
+
+Please make the login with the help of above credentials.
+
+After login you can create the project, to-do and developers
+
+View all todo lists status on dashboard for each project
+That's all for now ....
