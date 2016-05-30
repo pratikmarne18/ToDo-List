@@ -1,0 +1,28 @@
+<%= link_to 'Create Developer', new_user_path, :class => "btn btn-warning" %>
+<p id="notice"><%= notice %></p>
+<% if @users.empty?%>
+<h3>No developers to display</h3>
+<%else%>
+<h1>Developers List</h1>
+
+<table class= "table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <!-- <th>Assign Developer</th> -->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%end%>
+<br>
+<%= link_to 'Back', projects_path, :class=>"btn btn-default" %>

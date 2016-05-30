@@ -1,0 +1,7 @@
+<%= form_for :add_developer, url: save_developer_tasks_path, method: :post do|f|%>
+	<%= f.select :user_id, User.where("is_admin=?",false).map{|c| [c.name,c.id]} %>
+	<%= f.hidden_field :project_id, value: @project.id%>
+	<%=f.hidden_field :task_id,value: @task.id%>
+	<%= f.submit "Submit"%>
+<%end%>
+

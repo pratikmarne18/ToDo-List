@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>ToDo List</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+	<%p "========================"%>
+	<%p @tasks.inspect%>
+	<%p "========================"%>
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.name %></td>
+        <td><%= task.description %></td>
+        <!-- <td><%= task.user_id %></td>
+        <td><%= task.project_user_id %></td>
+        <td><%= task.project_id %></td> -->
+        <td><%= task.status %></td>
+        <%if current_user.is_admin?%>
+	        <td><%= link_to 'Add Developer',add_developer_tasks_path(:id=>task.project.id,:task_id=>task.id), :class=>"label label-warning" %>
+	       	
+	        <%= link_to 'Show', task, :class=>"label label-success" %>
+	        <%= link_to 'Edit', edit_task_path(task), :class=>"label label-info" %>
+	        <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"label label-danger" %></td>
+	        <%else%>
+	        <td><%= link_to 'Edit', edit_task_path(task), :class=>"label label-info" %>
+	        <%end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<%= link_to 'Back', projects_path, :class=>"btn btn-default" %>

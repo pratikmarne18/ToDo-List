@@ -1,0 +1,76 @@
+ <div id="chart_div"></div>
+
+<%= hidden_field(:object, :field, :value => "#{@progress.count}", :id => "progress")%>
+<%= hidden_field(:object, :field, :value => "#{@pending.count}", :id => "pending")%>
+<%= hidden_field(:object, :field, :value => "#{@done.count}", :id => "done")%>
+
+<p id="notice"><%= notice %></p>
+<% if @todo_lists.empty?%>
+  <h3>No projects to display</h3>
+<%else%>
+  <h1>Not assigned todo</h1>
+  
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+          <th>Status</th>
+         <%@developers.each do |developer|%>
+         <th><%=developer.user.name%></th>
+         <%end%>
+     </tr>
+    </thead>
+    <tr>
+    <td> Done </td>
+    <%@developers.each do |developer|%>
+    	<%if developer.tasks.where(:status => "done").empty?%>
+    		<td>
+    			-		
+    		</td>
+    	<%else%>
+  			<%developer.tasks.where(:status => "done").each do |todo|%>
+  					<td>
+  						<%=todo.name%>
+  					</td>	
+  			<%end%>
+  		<%end%>
+  	<%end%>
+  	</tr>
+    <td> In Progress </td>
+    <%@developers.each do |developer|%>
+    	<%if developer.tasks.where(:status => "progress").empty?%>
+    		<td>
+    			-
+    		</td>
+    	<%else%>
+  			<%developer.tasks.where(:status => "progress").each do |todo|%>
+  					<td>
+  						<%=todo.name%>
+  					</td>	
+  			<%end%>
+  		<%end%>
+  		<%end%>
+  	<tr>
+    <td> New </td>
+    <%@developers.each do |developer|%>
+    	<%if developer.tasks.where(:status => "pending").empty?%>
+    	<td>
+    		-
+    	</td>
+    	<%else%>
+  			<%developer.tasks.where(:status => "pending").each do |todo|%>
+  					<td>
+  						<%=todo.name%>
+  					</td>	
+  			<%end%>
+  		<%end%>
+  		<%end%>
+  	</tr>
+  	
+  	
+  	
+  	
+  </table>
+  
+<%end%>
+<br>
+<%= link_to 'Back', projects_path %>
