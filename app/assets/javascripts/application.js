@@ -50,7 +50,7 @@
 $(document).bind("page:change", function(){
 	if ($("#chart_div").length > 0)
 	{
-		//alert("kijs");
+		alert("kijs");
 	google.charts.load('current', {'packages':['corechart']});
 	google.charts.setOnLoadCallback(drawChart);
 	function drawChart() {
