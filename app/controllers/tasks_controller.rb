@@ -28,6 +28,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
+    @project = @task.project
   end
 
   # POST /tasks
