@@ -47,7 +47,7 @@
 // });
 
 
-$(document).ready("page:change", function(){
+$(document).bind("page:change", function(){
 	if ($("#chart_div").length > 0)
 	{
 	console.log("Javascript called ");
