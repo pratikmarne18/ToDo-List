@@ -50,7 +50,7 @@
 $(document).ready("page:change", function(){
 	if ($("#chart_div").length > 0)
 	{
-		//alert("kijs");
+	console.log("Javascript called ");
 	google.charts.load('current', {'packages':['corechart']});
 	google.charts.setOnLoadCallback(drawChart);
 	function drawChart() {
@@ -75,7 +75,7 @@ $(document).ready("page:change", function(){
                        'height':400};
 
         // Instantiate and draw our chart, passing in some options.
-          
+    	console.log("Drawing chart");      
         var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
         chart.draw(data, options);
       }
